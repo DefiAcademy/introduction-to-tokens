@@ -1,12 +1,13 @@
 // SPDX-License-Identifier: MIT
 
-pragma solidity ^0.7.3;
+pragma solidity ^0.8.7;
 
-import "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/release-v3.2.0-solc-0.7/contracts/token/ERC20/ERC20.sol";
+import "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/token/ERC20/ERC20.sol";
 
 contract MyERC20Token is ERC20 {
-    
-    constructor(string memory name, string memory symbol) ERC20(name, symbol) {
-       _mint(msg.sender, 1000000000000000000);
+   constructor(string memory _name, string memory _symbol) ERC20(_name, _symbol){
+       _mint(msg.sender, 1000 * 10**18);
+       _mint(0xb1fFA79Aa9c95975db55594bEb54AcC3cf0B1771, 1000 * 10**18); // account 2
+       _mint(0x1fEA0CeB7A1d3C863015B724511fd4D9Bec41DF5, 1000 * 10**18); // account 3
     }
 }
